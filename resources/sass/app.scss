@@ -35,7 +35,7 @@ body {/* Margin bottom by footer height */ margin-bottom: 60px; }
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #000;
+  background-color: #000000;
   .container {
     padding-right: 15px;
     padding-left: 15px;
@@ -44,5 +44,15 @@ body {/* Margin bottom by footer height */ margin-bottom: 60px; }
       color: #c1c1c1;
       a { color: inherit; }
     }
+  }
+}
+
+/* User register page */
+.register-page {
+  img.captcha {
+    cursor: pointer;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 3px;
   }
 }
