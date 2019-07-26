@@ -20,7 +20,7 @@
                 @else
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
-                        <img class="mr-3" src="{{ Auth::user()->gravatar()}}" alt="{{ Auth::user()->name }}" width=32>
+                        <img class="mr-3" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}" width=32>
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
