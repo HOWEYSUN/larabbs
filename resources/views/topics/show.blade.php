@@ -29,7 +29,7 @@
                         {{ $topic->title }}
                     </h1>
                     <div class="article-meta text-center text-secondary">
-                        {{ $topic->created_at->diffForHumans() }} ⋅<i class="far fa-comment"></i> {{ $topic->reply_count }}
+                        {{ $topic->created_at->diffForHumans() }} ⋅ <i class="far fa-comment"></i> {{ $topic->reply_count }}
                     </div>
                     <div class="topic-body mt-4 mb-4"> {!! $topic->body !!}</div>
                     <div class="operate">
@@ -40,13 +40,26 @@
                         </a>
                         @endcan
                         @can('destroy', $topic)
-                        <a href="#" class="btn btn-outline-secondary btn-sm" role="button">
-                            <i class="far fa-trash-alt"></i> 删除
-                        </a>
+                        <form action="{{ route('topics.destroy', $topic->id) }}" method="post" style="display:inline-block;" onsubmit="return confirm('您确定要删除吗？')">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-outline-secondary btn-sm">
+                                <i class="far fa-trash-alt"></i> 删除
+                            </button>
+                        </form>
                         @endcan
                     </div>
                 </div>
             </div>
+
+            {{-- 用户回复列表 --}}
+            <div class="card topic-reply mt-4">
+                <div class="card-body">
+                    @include('topics._reply_box', ['topic' => $topic])
+                    @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
+                </div>
+            </div>
+
         </div>
     </div>
 @stop
