@@ -11,16 +11,6 @@ use App\Jobs\TranslateSlug;
 
 class TopicObserver
 {
-    public function creating(Topic $topic)
-    {
-        //
-    }
-
-    public function updating(Topic $topic)
-    {
-        //
-    }
-
     public function saving(Topic $topic)
     {
         // XSS 过滤
